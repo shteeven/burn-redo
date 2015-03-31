@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name burnRedoApp.controller:AboutCtrl
+ * @name burnApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the burnRedoApp
+ * Controller of the burnApp
  */
 angular.module('burnRedoApp')
   .controller('AboutCtrl', function ($scope) {
