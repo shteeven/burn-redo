@@ -1,24 +1,24 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-@import url(http://fonts.googleapis.com/css?family=Oldenburg|Raleway:500);
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 //================//
-// Define fonts   //
-//================//
-@font-face {
-  font-family: citizenSlab;
-  src: url(fonts/citizen_slab.otf);
-}
-
-//================//
 // Define Sass Vars//
 //================//
 
+/*font sizes - arbitrary for the most part*/
+$font-size-base: 16px;
+$font-size-h1: 3em;
+$font-size-h2: 2.25em;
+$font-size-h3: 1.755em;
+$font-size-h4: 1.68em;
+$font-size-h5: 1.245em;
+
+
 /*font stacks*/
-$font-stack-body:'Raleway', Arial,"Helvetica Neue",Helvetica,sans-serif;
-$font-stack-header:'citizenSlab', Rockwell,"Courier Bold",Courier,Georgia,Times,"Times New Roman",serif;
+$font-stack-body: 'Raleway', Arial,'Helvetica Neue',Helvetica,sans-serif;
+$font-stack-header: 'citizenSlab', Rockwell,'Courier Bold',Courier,Georgia,Times,'Times New Roman',serif;
 
 /*color vars*/
 $color-turquoise: #1abc9c;
@@ -59,6 +59,18 @@ $bg-color-main: #333;
 $bg-color-section: #333;
 $bg-color-tab: #333;
 
+/*animations*/
+$transition-ease: all 0.3s ease-in-out;
+
+
+//================//
+// Define fonts   //
+//================//
+@font-face {
+  font-family: citizenSlab;
+  src: url(fonts/citizen_slab.otf);
+}
+@import url(http://fonts.googleapis.com/css?family=Oldenburg|Raleway:500);
 
 //================//
 // Base setup ====//
@@ -71,26 +83,146 @@ $bg-color-tab: #333;
 }
 
 body {
+  /* Positioning */
+  position: absolute;
+
+  /* Box-model */
   padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+
+  /* Typography */
+  font-size: $font-size-base;
   font-family: $font-stack-body;
+  color: $color-tan-dark;
+
+  /* Visual */
+  background-color: #ffffff;
+
+  /* Misc */
+
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: $font-stack-header;
 }
-h4,h5{
-  font-family: $font-stack-header;
+h1 {font-size: $font-size-h1}
+h2 {font-size: $font-size-h2}
+h3 {font-size: $font-size-h3}
+h4 {font-size: $font-size-h4}
+h5 {font-size: $font-size-h5}
+
+a {
+  text-decoration: none;
+  color: $color-tan-dark;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+
+//================//
+// Aside area style//
+//================//
+/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
+.aside{
+  /* Positioning */
+  position: absolute;
+  right: -250px;
+
+  /* Box-model */
+  display: block;
+  width: 250px;
+  height: 100%;
+
+  /* Typography */
+
+  /* Visual */
+  background-color: $color-green-sea;
+
+  /* Misc */
+  transition: $transition-ease;
+}
+
+.aside-reveal {
+  transform: translateX(-250px);
+}
+
+.main{
+  position: relative;
+
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  transition: $transition-ease;
+
 }
 
 //================//
-// Site wide style//
+// Content area style//
 //================//
+/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
+.content{
+  /* Positioning */
+  position: relative;
+  top: 60px;
+  z-index: 10;
+
+  /* Box-model */
+  display: block;
+  margin-bottom: 100px;
+  min-height:100%;
+
+  /* Typography */
+
+  /* Visual */
+  background-color: rgba($color-emerald, .8);
+
+  /* Misc */
+}
 
 
 //================//
 // Header styles  //
 //================//
 
+/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
+.header{
+  /* Positioning */
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+  /* Box-model */
+  display: block;
+  width: 100%;
+  height: 50px;
+
+  /* Typography */
+  color: $color-tan-dark;
+
+  /* Visual */
+  background-color: rgba($color-asbestos, .8);
+  border-bottom: 1px solid $color-silver;
+
+  /* Misc */
+}
+.header-logo{
+  float: right;
+  cursor: pointer;
+  img{
+    height: 40px;
+  }
+}
+
 //================//
 // Footer styles  //
 //================//
+
