@@ -112,15 +112,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.controller('AppCtrl', ['$scope', function($scope){
   $scope.aside = false;
+  $scope.openSub = false;
 
   function toggleAside(){
     $scope.aside = !$scope.aside;
   }
-  function closeAside(){
-    $scope.aside = false;
+
+  function toggleSubmenu(item){
+    if ($scope.openSub === item) {
+      $scope.openSub = false;
+    } else {
+      $scope.openSub = item;
+    }
+
   }
 
-  $scope.closeAside = closeAside;
+  $scope.toggleSubmenu = toggleSubmenu;
   $scope.toggleAside = toggleAside;
 
 

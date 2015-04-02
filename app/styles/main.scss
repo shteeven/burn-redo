@@ -4,6 +4,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 //================//
+// Define fonts   //
+//================//
+@font-face {
+  font-family: citizenSlab;
+  src: url(fonts/citizen_slab.otf);
+}
+@import url(http://fonts.googleapis.com/css?family=Oldenburg|Raleway:500);
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+
+
+//================//
 // Define Sass Vars//
 //================//
 
@@ -14,11 +25,14 @@ $font-size-h2: 2.25em;
 $font-size-h3: 1.755em;
 $font-size-h4: 1.68em;
 $font-size-h5: 1.245em;
+$font-size-nav: 1.68em;
 
 
 /*font stacks*/
 $font-stack-body: 'Raleway', Arial,'Helvetica Neue',Helvetica,sans-serif;
-$font-stack-header: 'citizenSlab', Rockwell,'Courier Bold',Courier,Georgia,Times,'Times New Roman',serif;
+$font-stack-hn: 'citizenSlab', Rockwell,'Courier Bold',Courier,Georgia,Times,'Times New Roman',serif;
+$font-stack-header: 'Amatic SC', Rockwell,'Courier Bold',Courier,Georgia,Times,'Times New Roman',serif;
+
 
 /*color vars*/
 $color-turquoise: #1abc9c;
@@ -48,29 +62,22 @@ $color-tan-dark: #47413A;
 $color-tan-black: #252525;
 
 /*font colors*/
-$font-color-base: #333;
-$font-color-header: #333;
+$font-color-base: $color-midnight-blue;
+$font-color-header: $color-clouds;
 $font-color-subheader: #333;
+$font-color-aside: $color-clouds;
+$font-color-a: #333;
 
 /*panel colors*/
-$bg-color-body: #333;
-$bg-color-aside: #333;
-$bg-color-main: #333;
-$bg-color-section: #333;
-$bg-color-tab: #333;
+$bg-color-body: $color-belize-hole;
+$bg-color-header: rgba($color-tan-light, .5);
+$bg-color-aside: rgba($color-wet-asphalt,.8);
+$bg-color-content: $color-tan-light;
+$bg-color-section: $color-tan-brown;
+$bg-color-tab: $color-wet-asphalt;
 
 /*animations*/
 $transition-ease: all 0.3s ease-in-out;
-
-
-//================//
-// Define fonts   //
-//================//
-@font-face {
-  font-family: citizenSlab;
-  src: url(fonts/citizen_slab.otf);
-}
-@import url(http://fonts.googleapis.com/css?family=Oldenburg|Raleway:500);
 
 //================//
 // Base setup ====//
@@ -98,10 +105,9 @@ body {
   color: $color-tan-dark;
 
   /* Visual */
-  background-color: #ffffff;
+  background-color: $bg-color-body;
 
   /* Misc */
-
 }
 
 h1,
@@ -109,7 +115,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: $font-stack-header;
+  font-family: $font-stack-hn;
 }
 h1 {font-size: $font-size-h1}
 h2 {font-size: $font-size-h2}
@@ -126,14 +132,18 @@ ol {
   list-style: none;
 }
 
+[ng-click],
+[ui-sref] {
+  cursor: pointer;
+}
 
 //================//
 // Aside area style//
 //================//
-/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
-.aside{
+/****** I purposefully left the comments in to help me remember declaration syntax order ********/
+.aside {
   /* Positioning */
-  position: absolute;
+  position: fixed;
   right: -250px;
 
   /* Box-model */
@@ -142,17 +152,75 @@ ol {
   height: 100%;
 
   /* Typography */
+  color: $font-color-aside;
 
   /* Visual */
-  background-color: $color-green-sea;
+  background-color: $bg-color-aside;
 
   /* Misc */
+  overflow-y: auto;
   transition: $transition-ease;
+}
+
+.aside-vert-nav {
+  margin-top: 100px;
+  padding-left: 0;
+
+  border-top: solid 1px rgba($color-concrete, .8);
+  border-bottom: solid 1px rgba($color-concrete, .8);
+}
+.aside-vert-nav li {
+  border-top: solid 1px rgba($color-concrete, .8);
+}
+.aside-vert-nav li div {
+  display: inline-block;
+  height: 50px;
+}
+
+.btn-submenu{ padding: 10px 0 0 10px }
+
+.aside .glyphicon {
+
+  padding: 10px;
+
+  line-height: 1.15;
+  font-size: $font-size-nav*.8;
+
+  transition: $transition-ease;
+}
+
+.aside .glyphicon-remove{
+  float: right;
+}
+
+.aside .open {
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Safari */
+  transform: rotate(-90deg);
+}
+
+.aside-vert-nav .btn-dropdown{
+  padding-right: 20px;
+}
+
+.aside-vert-nav .title {
+  width: 190px;
+  padding-top: 5px;
+  padding-left: 15px;
+
+  font-size: $font-size-nav;
+
+  //border-right: solid 1px $color-asbestos;
+
 }
 
 .aside-reveal {
   transform: translateX(-250px);
 }
+
+//================//
+// Main area style - all display content goes here aside from aside menu//
+//================//
 
 .main{
   position: relative;
@@ -162,41 +230,72 @@ ol {
   width: 100%;
 
   transition: $transition-ease;
-
 }
 
 //================//
 // Content area style//
 //================//
-/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
+/****** I purposefully left the comments in to help me remember declaration syntax order ********/
 .content{
   /* Positioning */
   position: relative;
-  top: 60px;
   z-index: 10;
 
   /* Box-model */
   display: block;
   margin-bottom: 100px;
   min-height:100%;
+  width: 100%;
+
 
   /* Typography */
+  color: $font-color-base;
 
   /* Visual */
-  background-color: rgba($color-emerald, .8);
+  background-color: $bg-color-content;
 
   /* Misc */
+}
+
+.content a {
+  color: $color-tan-black;
+  font-weight: 700;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 
 //================//
 // Header styles  //
 //================//
-
-/****** I purposefully left the comments in the .header to help me remember declaration syntax order ********/
-.header{
+/****** I purposefully left the comments in to help me remember declaration syntax order ********/
+.header {
   /* Positioning */
-  position: fixed;
+  position: relative;
+
+  /* Box-model */
+  display: block;
+  width: 100%;
+  height: 250px;
+
+  /* Typography */
+  color: $font-color-header;
+  text-align: center;
+
+  /* Visual */
+  background-image: url("/images/masthead-1.png");
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+
+}
+
+.header-bar {
+  /* Positioning */
+  position: absolute;
   top: 0;
   z-index: 100;
 
@@ -205,24 +304,45 @@ ol {
   width: 100%;
   height: 50px;
 
-  /* Typography */
-  color: $color-tan-dark;
-
   /* Visual */
-  background-color: rgba($color-asbestos, .8);
-  border-bottom: 1px solid $color-silver;
+  background-color: $bg-color-header;
+  //border-bottom: 1px solid $color-silver;
 
   /* Misc */
 }
-.header-logo{
+
+.header-aside-toggle {
   float: right;
-  cursor: pointer;
-  img{
-    height: 40px;
+  margin-right: 10px;
+  margin-top: 3px;
+  .glyphicon {
+    top: 4px
+  }
+}
+
+.header {
+  .header-brand,.header-quote {
+    position: relative;
+    top: 110px;
+    width: 49%;
+    display: inline-block;
+    margin: 0;
+  }
+  h1 {
+    margin:0;
+    font-size: $font-size-h1*1.5;
+    font-family: $font-stack-header;
+
+  }
+  h3 {
+    margin: 0;
+    font-family: $font-stack-header;
   }
 }
 
 //================//
 // Footer styles  //
 //================//
-
+.footer {
+  height: 250px;
+}

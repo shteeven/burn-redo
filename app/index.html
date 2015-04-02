@@ -27,15 +27,57 @@
       <span class="glyphicon glyphicon-remove" ng-click="toggleAside()"></span>
 
       <!-- Navigation -->
+      <ul class="aside-vert-nav">
+        <li>
+          <div ng-click="toggleAside()" ui-sref="event.koreaburn2015" class="title">Event</div>
+          <div ng-click="toggleSubmenu('event')" class="btn-submenu">
+            <span class="glyphicon glyphicon-chevron-down" ng-class="{open: openSub !== 'event'}"></span>
+          </div>
+          <ul collapse="openSub !== 'event'">
+            <li>Korea Burn 2015</li>
+            <li>Schedule</li>
+            <li>Art and Performance</li>
+            <li>Theme Camps</li>
+            <li>Preparation</li>
+          </ul>
+        </li>
+        <li>
+          <div ng-click="toggleAside()" ui-sref="culture" class="title">Culture</div>
+          <div ng-click="toggleSubmenu('culture')" class="btn-submenu">
+            <span class="glyphicon glyphicon-chevron-down" ng-class="{open: openSub !== 'culture'}"></span>
+          </div>
+          <ul collapse="openSub !== 'culture'">
+            <li>10 Principles</li>
+            <li>Leave No Trace</li>
+            <li>Participation</li>
+          </ul>
+        </li>
+        <li>
+          <div ng-click="toggleAside()" ui-sref="info" class="title">Info</div>
+          <div ng-click="toggleSubmenu('info')" class="btn-submenu">
+            <span class="glyphicon glyphicon-chevron-down" ng-class="{open: openSub !== 'info'}"></span>
+          </div>
+          <ul collapse="openSub !== 'info'">
+            <li>Tickets</li>
+            <li>Schedule</li>
+            <li>Getting There</li>
+            <li>Rules and Regs</li>
+            <li>Accommodations</li>
+          </ul>
+        </li>
+      </ul>
     </div>
     <!-- End of Aside -->
 
     <div class="main" ng-class="{'aside-reveal': aside}">
       <div class="header">
-        <div class="header-logo" ng-click="toggleAside()">
-          <img src="images/masthead-1.png" alt="Korea Burn Symbol"/>
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        <div class="header-bar">
+          <div class="header-aside-toggle" ng-click="toggleAside()">
+            <h5>Menu <span class="glyphicon glyphicon-menu-hamburger"></span></h5>
+          </div>
         </div>
+        <div class="header-brand"><h1>Korea Burn</h1></div>
+        <div class="header-quote hidden-xs"><h3 >Some inspiring quote here</h3></div>
       </div>
 
       <div class="content container">
