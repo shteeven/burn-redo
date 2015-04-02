@@ -10,9 +10,13 @@
 var app = angular.module('burnRedoApp');
 
 app.controller('EventCtrl', function ($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-  ];
+
+  $scope.expanded = true;
+
+  function toggleSubcontent(){
+    $scope.expanded = !$scope.expanded;
+  }
+
+  $scope.toggleSubcontent = toggleSubcontent;
+
 });

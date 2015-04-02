@@ -35,46 +35,52 @@ $font-stack-header: 'Amatic SC', Rockwell,'Courier Bold',Courier,Georgia,Times,'
 
 
 /*color vars*/
-$color-turquoise: #1abc9c;
+$color-green-turquoise: #1abc9c;
 $color-green-sea: #16a085;
-$color-emerald: #2ecc71;
-$color-nephritis: #2ecc71;
-$color-peter-river: #3498db;
-$color-belize-hole: #2980b9;
-$color-amethyst: #9b59b6;
-$color-wisteria: #8e44ad;
-$color-pomegranate: #c0392b;
-$color-alizarin: #e74c3c;
-$color-pumpkin: #d35400;
-$color-carrot: #e67e22;
+$color-green-emerald: #2ecc71;
+$color-green-nephritis: #2ecc71;
+$color-blue-peter-river: #3498db;
+$color-blue-belize-hole: #2980b9;
+$color-blue-wet-asphalt: #34495e;
+$color-blue-midnight: #2c3e50;
+$color-purple-amethyst: #9b59b6;
+$color-purple-wisteria: #8e44ad;
+$color-red-burgundy: #500800;
+$color-red-pomegranate: #c0392b;
+$color-red-alizarin: #e74c3c;
+$color-orange-pumpkin: #d35400;
+$color-orange-carrot: #e67e22;
+$color-orange-deep: #fb8d24;
 $color-orange: #f39c12;
-$color-sunflower: #f1c40f;
-$color-wet-asphalt: #34495e;
-$color-midnight-blue: #2c3e50;
-$color-asbestos: #7f8c8d;
-$color-concrete: #95a5a6;
-$color-silver: #bdc3c7;
-$color-clouds: #ecf0f1;
+$color-orange-off: #ca9e49;
+$color-yellow-sunflower: #f1c40f;
+$color-yellow-light: #fffed1;
+$color-gray-asbestos: #7f8c8d;
+$color-gray-concrete: #95a5a6;
+$color-gray-silver: #bdc3c7;
+$color-gray-clouds: #ecf0f1;
 $color-tan-light: #C2B49A;
 $color-tan-brown: #A59275;
 $color-tan-gray: #716659;
 $color-tan-dark: #47413A;
-$color-tan-black: #252525;
+$color-black-tan: #252525;
 
 /*font colors*/
-$font-color-base: $color-midnight-blue;
-$font-color-header: $color-clouds;
+$font-color-base: $color-blue-midnight;
+$font-color-header: $color-gray-clouds;
 $font-color-subheader: #333;
-$font-color-aside: $color-clouds;
-$font-color-a: #333;
+$font-color-aside: $color-gray-clouds;
+$font-color-alt: $color-orange-off;
+
 
 /*panel colors*/
-$bg-color-body: $color-belize-hole;
+$bg-color-body: $color-blue-belize-hole;
 $bg-color-header: rgba($color-tan-light, .5);
-$bg-color-aside: rgba($color-wet-asphalt,.8);
+$bg-color-aside: rgba($color-blue-wet-asphalt,.8);
 $bg-color-content: $color-tan-light;
 $bg-color-section: $color-tan-brown;
-$bg-color-tab: $color-wet-asphalt;
+$bg-color-tab: $color-blue-wet-asphalt;
+$bg-color-alt: $color-orange;
 
 /*animations*/
 $transition-ease: all 0.3s ease-in-out;
@@ -137,6 +143,17 @@ ol {
   cursor: pointer;
 }
 
+.open-90 {
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Safari */
+  transform: rotate(-90deg);
+}
+.open-45 {
+  -ms-transform: rotate(-45deg); /* IE 9 */
+  -webkit-transform: rotate(-45deg); /* Safari */
+  transform: rotate(-45deg);
+}
+
 //================//
 // Aside area style//
 //================//
@@ -166,11 +183,11 @@ ol {
   margin-top: 100px;
   padding-left: 0;
 
-  border-top: solid 1px rgba($color-concrete, .8);
-  border-bottom: solid 1px rgba($color-concrete, .8);
+  border-top: solid 1px rgba($color-gray-concrete, .8);
+  border-bottom: solid 1px rgba($color-gray-concrete, .8);
 }
 .aside-vert-nav li {
-  border-top: solid 1px rgba($color-concrete, .8);
+  border-top: solid 1px rgba($color-gray-concrete, .8);
 }
 .aside-vert-nav li div {
   display: inline-block;
@@ -193,12 +210,6 @@ ol {
   float: right;
 }
 
-.aside .open {
-  -ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Safari */
-  transform: rotate(-90deg);
-}
-
 .aside-vert-nav .btn-dropdown{
   padding-right: 20px;
 }
@@ -219,54 +230,6 @@ ol {
 }
 
 //================//
-// Main area style - all display content goes here aside from aside menu//
-//================//
-
-.main{
-  position: relative;
-
-  display: block;
-  height: 100%;
-  width: 100%;
-
-  transition: $transition-ease;
-}
-
-//================//
-// Content area style//
-//================//
-/****** I purposefully left the comments in to help me remember declaration syntax order ********/
-.content{
-  /* Positioning */
-  position: relative;
-  z-index: 10;
-
-  /* Box-model */
-  display: block;
-  margin-bottom: 100px;
-  min-height:100%;
-  width: 100%;
-
-
-  /* Typography */
-  color: $font-color-base;
-
-  /* Visual */
-  background-color: $bg-color-content;
-
-  /* Misc */
-}
-
-.content a {
-  color: $color-tan-black;
-  font-weight: 700;
-  &:hover{
-    text-decoration: underline;
-  }
-}
-
-
-//================//
 // Header styles  //
 //================//
 /****** I purposefully left the comments in to help me remember declaration syntax order ********/
@@ -284,10 +247,8 @@ ol {
   text-align: center;
 
   /* Visual */
-  background-image: url("/images/masthead-1.png");
-
   background-size: cover;
-  background-position: center;
+  background: url("/images/masthead-2.png") center;
 
   overflow: hidden;
 
@@ -320,6 +281,7 @@ ol {
   }
 }
 
+/*nested header child elements*/
 .header {
   .header-brand,.header-quote {
     position: relative;
@@ -331,13 +293,148 @@ ol {
   h1 {
     margin:0;
     font-size: $font-size-h1*1.5;
+    font-weight: 700;
     font-family: $font-stack-header;
-
   }
   h3 {
     margin: 0;
     font-family: $font-stack-header;
   }
+  @media screen and (max-width: 767px) {
+    .header-brand{
+      width: 75%; //arbitrary width to keep text inline
+    }
+  }
+}
+
+//================//
+// Main area style - all display content goes here aside from aside menu//
+//================//
+
+.main{
+  position: relative;
+
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  transition: $transition-ease;
+
+  background-color: $bg-color-content;
+
+}
+
+//================//
+// Content area style//
+//================//
+/****** I purposefully left the comments in to help me remember declaration syntax order ********/
+.content{
+  /* Positioning */
+  position: relative;
+  z-index: 10;
+
+  /* Box-model */
+  display: block;
+  margin-bottom: 100px;
+  min-height:100%;
+  width: 100%;
+
+
+  /* Typography */
+  color: $font-color-base;
+
+  /* Visual */
+  background-color: $bg-color-content;
+
+
+  /* Misc */
+}
+
+.content-page {
+  width: 100%;
+  max-width: 850px;
+
+  @media screen and (min-width: 768px) {
+    width: 77%;
+    padding-left: 100px;
+  }
+}
+
+/*nested items here*/
+.content-toggle {
+  * {
+    display: inline-block;
+  }
+  i{
+    font-size: $font-size-h4;
+    transition: $transition-ease;
+    color: $font-color-alt;
+  }
+}
+
+.content-links {
+  background-color: $color-tan-brown;
+  text-align: center;
+  color: $font-color-alt;
+  h2,h1{
+    font-family: $font-stack-header;
+  }
+}
+.content-links>div {
+  position: relative;
+
+  display: inline-block;
+  height: 105px;
+  text-align: center;
+
+  border-radius: 5px;
+  background: url("/images/yeoman.png") center;
+  background-size: cover;
+
+}
+.content-links .long {
+  display: block;
+  width: 70%;
+  margin: 10px auto 0 auto;
+}
+.content-links .short {
+  display: inline-block;
+  width: 40%;
+  margin: 10px auto 0 auto;
+}
+
+.content-links .mask {
+  position: absolute;
+  z-index: 10;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgba($color-gray-concrete, .5);
+}
+
+.content a {
+  color: $font-color-alt;
+  font-weight: 700;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+
+.img-reel {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  //max-width: 200px;
+  background-color: $bg-color-alt;
+}
+.img-holder {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background: url("/images/img-canvas-1.png") center;
 }
 
 //================//
@@ -345,4 +442,6 @@ ol {
 //================//
 .footer {
   height: 250px;
+  color: $font-color-alt;
+
 }

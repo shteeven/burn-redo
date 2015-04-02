@@ -124,7 +124,6 @@ app.controller('AppCtrl', ['$scope', function($scope){
     } else {
       $scope.openSub = item;
     }
-
   }
 
   $scope.toggleSubmenu = toggleSubmenu;
