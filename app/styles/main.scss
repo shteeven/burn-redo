@@ -19,7 +19,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 //================//
 
 /*font sizes - arbitrary for the most part*/
-$font-size-base: 16px;
 $font-size-h1: 3em;
 $font-size-h2: 2.25em;
 $font-size-h3: 1.755em;
@@ -114,6 +113,20 @@ body {
   background-color: $bg-color-body;
 
   /* Misc */
+
+  @media screen and (min-width: 767px) {
+    h1 {font-size: 3em}
+    h2 {font-size: 2.25em}
+    h3 {font-size: 1.755em}
+    h4 {font-size: 1.245em}
+    h5 {font-size: 1.68em}
+    //$font-size-h1: 3em;
+    //$font-size-h2: 2.25em;
+    //$font-size-h3: 1.755em;
+    //$font-size-h4: 1.68em;
+    //$font-size-h5: 1.245em;
+    //$font-size-nav: 1.68em;
+  }
 }
 
 h1,
@@ -152,6 +165,10 @@ ol {
   -ms-transform: rotate(-45deg); /* IE 9 */
   -webkit-transform: rotate(-45deg); /* Safari */
   transform: rotate(-45deg);
+}
+
+.aside-reveal {
+  transform: translateX(-250px);
 }
 
 //================//
@@ -225,10 +242,6 @@ ol {
 
 }
 
-.aside-reveal {
-  transform: translateX(-250px);
-}
-
 //================//
 // Header styles  //
 //================//
@@ -289,6 +302,10 @@ ol {
     width: 49%;
     display: inline-block;
     margin: 0;
+  }
+  a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
   }
   h1 {
     margin:0;
@@ -373,43 +390,54 @@ ol {
 }
 
 .content-links {
+  position: relative;
+  padding: 10px;
   background-color: $color-tan-brown;
   text-align: center;
   color: $font-color-alt;
-  h2,h1{
+  h2,h1,h3{
     font-family: $font-stack-header;
   }
 }
 .content-links>div {
   position: relative;
-
   display: inline-block;
-  height: 105px;
   text-align: center;
-
   border-radius: 5px;
-  background: url("/images/yeoman.png") center;
+  //background: url("/images/yeoman.png") center;
   background-size: cover;
-
 }
-.content-links .long {
+.long {
   display: block;
   width: 70%;
-  margin: 10px auto 0 auto;
+  margin: 0 auto 10px auto;
 }
-.content-links .short {
+.short {
   display: inline-block;
-  width: 40%;
-  margin: 10px auto 0 auto;
+  width: 30%;
+  //min-width: 300px;
+  margin: 0 auto 10px auto;
+
+  h1{
+    margin: 0;
+    padding-top: 10%;
+    @media screen and (min-width: 767px) {
+      font-size: 4em;
+      padding-top: 20%;
+    }
+  }
 }
 
-.content-links .mask {
-  position: absolute;
-  z-index: 10;
+.content-links img {
+  //position: absolute;
+}
 
+.mask {
+  position: absolute;
+  top: 0;
+  z-index: 10;
   height: 100%;
   width: 100%;
-
   background: rgba($color-gray-concrete, .5);
 }
 
