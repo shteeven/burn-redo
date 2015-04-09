@@ -40,6 +40,7 @@ $color-green-emerald: #2ecc71;
 $color-green-nephritis: #2ecc71;
 $color-blue-peter-river: #3498db;
 $color-blue-belize-hole: #2980b9;
+$color-blue-clouds: #9cb4cf;
 $color-blue-wet-asphalt: #34495e;
 $color-blue-midnight: #2c3e50;
 $color-purple-amethyst: #9b59b6;
@@ -69,11 +70,11 @@ $font-color-base: darken($color-gray-concrete, 40%);
 $font-color-header: $color-gray-clouds;
 $font-color-subheader: #333;
 $font-color-aside: $color-gray-clouds;
-$font-color-alt: $color-orange-off;
+$font-color-alt: darken($color-gray-concrete, 40%);
 
 
 /*panel colors*/
-$bg-color-body: $color-blue-belize-hole;
+$bg-color-body: $color-blue-clouds;
 $bg-color-header: rgba($color-black-tan, .5);
 $bg-color-aside: rgba($color-blue-wet-asphalt,.8);
 $bg-color-content: $color-tan-light;
@@ -278,14 +279,14 @@ ol {
   position: absolute;
   top: 0;
   z-index: 100;
-
+  color: $color-gray-asbestos;
   /* Box-model */
   display: block;
   width: 100%;
   height: 50px;
 
   /* Visual */
-  background-color: $bg-color-header;
+  //background-color: $bg-color-header;
   //border-bottom: 1px solid $color-silver;
 
   /* Misc */
@@ -307,7 +308,12 @@ ol {
     top: 110px;
     width: 49%;
     display: inline-block;
+  }
+  .header-brand {
     margin: 0;
+  }
+  .header-quote {
+    top: 39%;
   }
   a:hover, a:focus {
     text-decoration: none;
@@ -329,6 +335,7 @@ ol {
     }
   }
 }
+
 
 //================//
 // Main area style - all display content goes here aside from aside menu//
@@ -511,4 +518,12 @@ main {
     vertical-align: top;
     display: inline-block;
   }
+}
+
+.info-news {
+  ul { padding-left: 0; }
+  li { border-top: solid 2px $font-color-base}
+  .info-news>* { display: inline-block; }
+  .date { font-weight: 400; }
+  font-weight: 600;
 }
