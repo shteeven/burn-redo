@@ -24,7 +24,7 @@ $font-size-h2: 2.25em;
 $font-size-h3: 1.755em;
 $font-size-h4: 1.68em;
 $font-size-h5: 1.245em;
-$font-size-nav: 1.68em;
+$font-size-nav: 1.755em;
 
 
 /*font stacks*/
@@ -65,7 +65,7 @@ $color-tan-dark: #47413A;
 $color-black-tan: #252525;
 
 /*font colors*/
-$font-color-base: $color-blue-midnight;
+$font-color-base: darken($color-gray-concrete, 40%);
 $font-color-header: $color-gray-clouds;
 $font-color-subheader: #333;
 $font-color-aside: $color-gray-clouds;
@@ -74,7 +74,7 @@ $font-color-alt: $color-orange-off;
 
 /*panel colors*/
 $bg-color-body: $color-blue-belize-hole;
-$bg-color-header: rgba($color-tan-light, .5);
+$bg-color-header: rgba($color-black-tan, .5);
 $bg-color-aside: rgba($color-blue-wet-asphalt,.8);
 $bg-color-content: $color-tan-light;
 $bg-color-section: $color-tan-brown;
@@ -96,11 +96,12 @@ $transition-ease: all 0.3s ease-in-out;
 
 body {
   /* Positioning */
-  position: absolute;
+  margin: 0 auto;
 
   /* Box-model */
   padding: 0;
   width: 100%;
+  max-width: 1280px;
   height: 100%;
   overflow-x: hidden;
 
@@ -119,7 +120,7 @@ body {
     h2 {font-size: 2.25em}
     h3 {font-size: 1.755em}
     h4 {font-size: 1.245em}
-    h5 {font-size: 1.68em}
+    h5 {font-size: .9em}
     //$font-size-h1: 3em;
     //$font-size-h2: 2.25em;
     //$font-size-h3: 1.755em;
@@ -144,7 +145,7 @@ h5 {font-size: $font-size-h5}
 
 a {
   text-decoration: none;
-  color: $color-tan-dark;
+  //color: $color-tan-dark;
 }
 ul,
 ol {
@@ -264,8 +265,13 @@ ol {
   background: url("/images/masthead-2.png") center;
 
   overflow: hidden;
-
 }
+
+.header h5 {
+  font-size: $font-size-h3;
+}
+
+.header a { color: $font-color-header; }
 
 .header-bar {
   /* Positioning */
@@ -337,8 +343,7 @@ ol {
 
   transition: $transition-ease;
 
-  background-color: $bg-color-content;
-
+  //background-color: $bg-color-content;
 }
 
 //================//
@@ -352,7 +357,7 @@ ol {
 
   /* Box-model */
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   min-height:100%;
   width: 100%;
 
@@ -361,7 +366,7 @@ ol {
   color: $font-color-base;
 
   /* Visual */
-  background-color: $bg-color-content;
+  //background-color: $bg-color-content;
 
 
   /* Misc */
@@ -376,7 +381,9 @@ ol {
     padding-left: 100px;
   }
 }
-
+main {
+  background-color: $bg-color-content;
+}
 /*nested items here*/
 .content-toggle {
   * {
@@ -389,73 +396,23 @@ ol {
   }
 }
 
-.content-links {
-  position: relative;
-  padding: 10px;
-  background-color: $color-tan-brown;
-  text-align: center;
-  color: $font-color-alt;
-  h2,h1,h3{
-    font-family: $font-stack-header;
-  }
-}
-.content-links>div {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  border-radius: 5px;
-  //background: url("/images/yeoman.png") center;
-  background-size: cover;
-}
-.long {
-  display: block;
-  width: 70%;
-  margin: 0 auto 10px auto;
-}
-.short {
-  display: inline-block;
-  width: 30%;
-  //min-width: 300px;
-  margin: 0 auto 10px auto;
-
-  h1{
-    margin: 0;
-    padding-top: 10%;
-    @media screen and (min-width: 767px) {
-      font-size: 4em;
-      padding-top: 20%;
-    }
-  }
-}
-
-.content-links img {
-  //position: absolute;
-}
-
 .mask {
-  position: absolute;
+  padding-top: 35%;
+  text-align: center;
   top: 0;
   z-index: 10;
   height: 100%;
   width: 100%;
-  background: rgba($color-gray-concrete, .5);
+  //background: rgba($color-gray-clouds, .2);
+  h5 {color: #ffffff;}
 }
-
-.content a {
-  color: $font-color-alt;
-  font-weight: 700;
-  &:hover{
-    text-decoration: underline;
-  }
-}
-
 
 .img-reel {
   position: absolute;
   right: 0;
-  width: 20%;
+  width: 25%;
   height: 100%;
-  //max-width: 200px;
+  max-width: 300px;
   background-color: $bg-color-alt;
 }
 .img-holder {
@@ -471,5 +428,87 @@ ol {
 .footer {
   height: 250px;
   color: $font-color-alt;
+}
 
+//================//
+// Home styles    //
+//================//
+.home {
+  //background-color: $bg-color-content;
+  background: linear-gradient(to top, lighten($color-tan-brown, 35%), $color-tan-brown);
+
+}
+.home>* {
+  //padding-left: 0;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-top: 15px;
+}
+
+.home-landing {
+  margin-left: -8%;
+  padding-top: 7%;
+  padding-bottom: 7%;
+  text-align: center;
+  background-image: url("/images/masthead-fire.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.home .carousel-control.left,
+.home .carousel-control.right {
+  //background-image: none;
+}
+.info-carousel {
+  max-width: 600px;
+  .carousel {
+    box-shadow: 0 0 5px;
+  }
+}
+
+.about-burn { text-align: center; }
+
+.info {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
+  max-width: 550px;
+  @media screen and (min-width: 767px) {
+    max-width: 1060px;
+  }
+}
+
+.join {
+  height: 300px;
+  padding-right: 0;
+  padding-left: 0;
+  box-shadow: 0 0 5px;
+  background-image: url("/images/thumb-4.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner {
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 0;
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  //background-image: url("/images/logo-1.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  p {
+    display: inline-block;
+    font-family: $font-stack-header;
+    color: $bg-color-header;
+    font-weight: 900;
+    font-size: $font-size-h3;
+  }
+  img {
+    height: 180%;
+    vertical-align: top;
+    display: inline-block;
+  }
 }

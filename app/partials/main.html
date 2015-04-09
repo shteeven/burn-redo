@@ -1,30 +1,49 @@
 <!-- partials/main.html -->
-<div class="content-links">
-  <div class="short">
-    <img src="images/thumb-1.png" class="img-responsive"/>
-    <div class="mask">
-      <a ui-sref="event"><h1>Event</h1></a>
+<div class="home">
+  <div class="banner">
+    <p>Welcome to</p>
+    <img class="img-responsive" src="images/logo-1.png" alt="Korea Burn Logo"/>
+    <p>Korea Burn</p>
+  </div>
+  <div class="info row">
+    <div class="join col-xs-12 col-sm-5">
+      <div class="mask "><h5>Join the burn!! Why? Because I said so.</h5></div>
+    </div>
+    <div class="about-burn col-xs-12 col-sm-7">
+      <h3>Here is the skinny</h3>
+      <p>This is Korea burn. Deal with it! KOREA BURN started in 2011 on Muuido Beach, near Incheon, in South Korea. With roughly 150 burners in attendance, people set up tents, played guitars and bongos while everyone participated in body painting, hair braiding, yoga, dancing, bar-tending, and fire-spinning!
+        <br/>
+        Our goal is to bring the spirit and community of Burning Man in Nevada, USA, to South Korea, with all the love and creative expression of Black Rock City.</p>
     </div>
   </div>
-  <div class="short">
-    <img src="images/thumb-2.png" class="img-responsive"/>
-    <div class="mask">
-      <a ui-sref="culture"><h1>Culture</h1></a>
+  <div class="banner hidden-xs">
+    <p>Welcome to</p>
+    <img class="img-responsive" src="images/logo-1.png" alt="Korea Burn Logo"/>
+    <p>Korea Burn</p>
+  </div>
+  <div class="info row">
+
+    <div class="info-news col-xs-12 col-sm-5">
+      <div class="info-news-nav">
+        <h4>update 1</h4>
+        <h4>update 2</h4>
+        <h4>update 3</h4>
+        <h4>update 4</h4>
+        <h4>update 5</h4>
+      </div>
+    </div>
+    <div class="info-carousel row col-xs-12 col-sm-7">
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <h4>Slide {{$index}}</h4>
+            <p>{{slide.text}}</p>
+          </div>
+        </slide>
+      </carousel>
     </div>
   </div>
-  <div class="short">
-    <img src="images/thumb-3.png" class="img-responsive"/>
-    <div class="mask">
-      <a ui-sref="info"><h1>Info</h1></a>
-    </div>
-  </div>
+
 
 </div>
-
-<div id="burn-intro" class="main-section">
-</div>
-
-
-<a ui-sref="main.list">Show List</a>
-
-<div ui-view></div>

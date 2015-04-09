@@ -10,7 +10,6 @@
  */
 var app = angular
   .module('burnRedoApp', [
-    'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',

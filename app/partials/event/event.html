@@ -1,32 +1,15 @@
 <!-- partials/event/event.html -->
-<div class="img-reel hidden-xs">
-  <div class="img-holder"></div>
-</div>
-
-<div class="content-page">
-
-  <div class="content-toggle">
-    <H2>Events</H2>
-    <i ng-click="toggleSubcontent()" class="glyphicon glyphicon-remove-circle" ng-class="{'open-45': !expanded}"></i>
+<main>
+  <div class="img-reel hidden-xs">
+    <div class="img-holder"></div>
   </div>
-  <div class="content-links" collapse="!expanded">
-    <div ui-sref="event.koreaburn2015" class="long" ng-click="toggleSubcontent()">
-      <div class="mask"><h5>Korea Burn 2015</h5></div>
-    </div>
-    <div ui-sref="event.koreaburn2015" class="short" ng-click="toggleSubcontent()">
-      <div class="mask"><h5>Korea Burn 2015</h5></div>
-      <img class="img-responsive" src="/images/yeoman.png" alt="image link to Korea Burn 2015 page"/>
-    </div>
-    <div ui-sref="event.koreaburn2015" class="short" ng-click="toggleSubcontent()">
-      <div class="mask"><h1>Korea Burn 2015</h1></div>
-      <img class="img-responsive" src="/images/yeoman.png" alt="image link to Korea Burn 2015 page"/>
-    </div>
-    <div ui-sref="event.koreaburn2015" class="long" ng-click="toggleSubcontent()">
-      <div class="mask"><h2>Korea Burn 2015</h2></div>
-      <img class="img-responsive" src="/images/yeoman.png" alt="image link to Korea Burn 2015 page"/>
-    </div>
 
+  <div class="content-page">
 
+    <div class="content-toggle">
+      <H2>Events</H2>
+      <i ng-click="toggleSubcontent()" class="glyphicon glyphicon-remove-circle" ng-class="{'open-45': !expanded}"></i>
+    </div>
+    <div ui-view></div>
   </div>
-  <div ui-view></div>
-</div>
+</main>
