@@ -80,7 +80,7 @@ $bg-color-aside: rgba($color-blue-wet-asphalt,.8);
 $bg-color-content: $color-tan-light;
 $bg-color-section: $color-tan-brown;
 $bg-color-tab: $color-blue-wet-asphalt;
-$bg-color-alt: $color-orange;
+$bg-color-alt: $color-blue-clouds;
 
 /*animations*/
 $transition-ease: all 0.3s ease-in-out;
@@ -243,6 +243,9 @@ ol {
   //border-right: solid 1px $color-asbestos;
 
 }
+.aside-img {
+  padding: 30px;
+}
 
 //================//
 // Header styles  //
@@ -388,9 +391,31 @@ ol {
     padding-left: 100px;
   }
 }
-main {
-  background-color: $bg-color-content;
+
+.content-sub {
+  ul {
+    width: 20%;
+    vertical-align: top;
+  }
+  li {
+    background-color: rgba($color-black-tan, .5);
+  }
+  .nav-tabs > li.active > a {
+    background: none;
+    border: none;
+    //border-bottom-color: ;
+  }
+  &>div {
+    width: 78%;
+    text-align: center;
+  };
 }
+
+.content-sub>* {
+  display: inline-block;
+}
+
+
 /*nested items here*/
 .content-toggle {
   * {
@@ -400,6 +425,9 @@ main {
     font-size: $font-size-h4;
     transition: $transition-ease;
     color: $font-color-alt;
+  }
+  h2 {
+    margin-top: 0;
   }
 }
 
@@ -420,7 +448,7 @@ main {
   width: 25%;
   height: 100%;
   max-width: 300px;
-  background-color: $bg-color-alt;
+  //background-color: $bg-color-alt;
 }
 .img-holder {
   height: 100%;
@@ -442,7 +470,7 @@ main {
 //================//
 .home {
   //background-color: $bg-color-content;
-  background: linear-gradient(to top, lighten($color-tan-brown, 35%), $color-tan-brown);
+  background: linear-gradient(to top, $color-tan-brown, lighten($color-tan-brown, 35%));
 
 }
 .home>* {
@@ -527,3 +555,4 @@ main {
   .date { font-weight: 400; }
   font-weight: 600;
 }
+
