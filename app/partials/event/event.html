@@ -16,6 +16,15 @@
       <H2>Events</H2>
       <i ng-click="toggleSubcontent()" class="glyphicon glyphicon-remove-circle" ng-class="{'open-45': !expanded}"></i>
     </div>
+    <div ng-show="expanded" class="box">
+      <ul>
+        <li  ng-click="toggleSubcontent()" ui-sref="event.koreaburn2015">Korea Burn 2015</li>
+        <li><strike>Here is where</strike></li>
+        <li><strike>the links to all</strike></li>
+        <li><strike>event sub-categories</strike></li>
+        <li><strike>would be!</strike></li>
+      </ul>
+    </div>
     <div ui-view></div>
   </div>
 </div>

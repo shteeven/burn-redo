@@ -375,23 +375,10 @@ ol {
   /* Typography */
   color: $font-color-base;
 
-  /* Visual */
-  //background-color: $bg-color-content;
-
-
   /* Misc */
   overflow-x: hidden;
 }
 
-.content-page {
-  //width: 100%;
-  //max-width: 1150px;
-
-  @media screen and (min-width: 768px) {
-    //width: 77%;
-    //padding-left: 100px;
-  }
-}
 .tab-content {
   width: 85%;
   @media screen and (min-width: 600px) {
@@ -481,6 +468,7 @@ ol {
 .home {
   //background-color: $bg-color-content;
   background: linear-gradient(to top, $color-tan-brown, lighten($color-tan-brown, 35%));
+  min-height: 600px;
 
 }
 .home>* {
@@ -566,3 +554,9 @@ ol {
   font-weight: 600;
 }
 
+
+.box li {
+  display: inline-block;
+  border: solid 1px $bg-color-content;
+  background-color: rgba($bg-color-alt, .5);
+}
